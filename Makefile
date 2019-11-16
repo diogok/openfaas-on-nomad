@@ -25,6 +25,9 @@ start-consul:
 start-nomad:
 	sudo nomad agent -dev-connect -bind 0.0.0.0
 
+start-services:
+	for f in $$(ls services/*); do nomad job run $$f ; sleep 2 ; done
+
 install-consul:
 	curl https://releases.hashicorp.com/consul/$(consul_version)/consul_$(consul_version)_$(os)_$(arch).zip -o consul_$(consul_version)_$(os)_$(arch).zip
 	unzip consul_$(consul_version)_$(os)_$(arch).zip

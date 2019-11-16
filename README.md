@@ -4,7 +4,7 @@ This is a reference for running OpenFAAS on Consul+Nomad.
 
 ## Instructions 
 
-This is for running locally.
+This is for running local.
 
 ### Installation
 
@@ -31,7 +31,13 @@ make start-nomad
 
 OpenFaas is composed of several parts, they are all described in services folder in order of priority. 
 
-To deploy the services on Nomad:
+To reploy all services:
+
+```sh
+make start-services
+```
+
+To re-deploy a single service on Nomad:
 
 ```sh
 nomad job run services/00-prometheus.hcl
